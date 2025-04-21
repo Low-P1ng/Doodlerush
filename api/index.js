@@ -1,16 +1,3 @@
-const express = require('express');
-const path = require('path');
-const app = express();
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, '../views'));
-
-// Static files
-app.use(express.static(path.join(__dirname, '../public')));
-
-// Home route
-app.get('/', (req, res) => {
-  res.render('index', { title: 'Home Page' });
-});
-
-module.exports = app;
+// api/index.js
+const app = require('../app'); // Import your existing app.js
+module.exports = app;          // Export it for Vercel to use
