@@ -1,3 +1,6 @@
-// api/index.js
-const app = require('../app'); // Import your existing app.js
-module.exports = app;          // Export it for Vercel to use
+app.get('/', (req, res) => {
+    res.render('index', {
+      title: 'Vercel EJS App',
+      roomID: null // or whatever default value makes sense
+    });
+  });
