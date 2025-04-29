@@ -31,6 +31,9 @@ class Room {
         const { io, socket } = this;
         const roomID = data.id;
         const players = Array.from(await io.in(roomID).allSockets());
+        if (!games[roomID]) {
+            games[roomID] = {};
+        }
         games[roomID][socket.id] = {};
         games[roomID][socket.id].score = 0;
         games[roomID][socket.id].name = data.player.name;
